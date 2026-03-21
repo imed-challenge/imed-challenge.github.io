@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data - iMED Challenge 2026</title>
+    <meta name="description" content="Dataset and split details for the iMED Challenge 2026.">
+    <link rel="stylesheet" href="assets/site.css">
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="masthead">
+        <div class="masthead__inner">
+          <nav class="site-nav" aria-label="Primary">
+            <a class="site-nav__brand" href="./index.html">iMED Challenge 2026</a>
+            <button class="site-nav__toggle" type="button" data-nav-toggle aria-label="Toggle navigation">Menu</button>
+            <ul class="site-nav__links" data-nav-links>
+              <li><a href="./index.html">Overview</a></li>
+              <li><a class="is-current" href="./data.html">Data</a></li>
+              <li><a href="./evaluation.html">Evaluation &amp; Prizes</a></li>
+              <li><a href="./participation.html">Participation</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <main class="page-wrap">
+        <aside class="sidebar">
+          <div class="sidebar__sticky">
+            <section class="profile-card">
+              <div class="profile-card__avatar">
+                <img src="images/download.png" alt="iMED Challenge logo">
+              </div>
+              <h2 class="profile-card__title">Dataset</h2>
+              <p class="profile-card__subtitle">Dual stereo endoscopy with deformable anatomy</p>
+              <ul class="profile-card__meta">
+                <li><span class="profile-card__dot"></span><span><strong>Acquisition setup</strong><br>Two synchronized stereo endoscopes, four video streams per sequence</span></li>
+                <li><span class="profile-card__dot"></span><span><strong>Capture types</strong><br>Ex vivo, in vivo post-mortem, and in vivo live</span></li>
+              </ul>
+            </section>
+          </div>
+        </aside>
+
+        <section class="content">
+          <article class="content-card">
+            <h1>Dataset Overview</h1>
+            <p class="kicker">
+              The iMED Challenge uses task-specific subsets of the broader iMED dataset. For the full iMED dataset, please visit the official website for more information:
+              <a href="#" onclick="return false;" aria-disabled="true">Full iMED dataset page (link placeholder)</a>.
+            </p>
+            <div class="data-figure">
+              <img src="images/data-overview-placeholder.svg" alt="iMED Challenge data overview placeholder figure">
+            </div>
+
+            <h2>Dataset Access</h2>
+            <p>
+              The dataset will be officially released through the UCL Research Data Repository (UCL RDR).
+              Dataset access page:
+              <a href="https://www.ucl.ac.uk/library/open-science-research-support/research-data-management/ucl-research-data-repository" target="_blank" rel="noopener noreferrer">UCL Research Data Repository</a>.
+            </p>
+
+            <h2>Task-specific splits</h2>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Task</th>
+                    <th>Train</th>
+                    <th>Validation</th>
+                    <th>Hidden Test</th>
+                    <th>Main purpose</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>iMED PE</td>
+                    <td>78 cases</td>
+                    <td>21 cases</td>
+                    <td>6 cases</td>
+                    <td>Relative pose estimation under moving-camera, deformable scenes</td>
+                  </tr>
+                  <tr>
+                    <td>iMED NVS</td>
+                    <td>84 cases</td>
+                    <td>23 cases</td>
+                    <td>6 cases</td>
+                    <td>Novel view synthesis with static cameras and moving anatomy</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h2>Subtask definitions</h2>
+            <div class="panel-grid">
+              <article>
+                <h3>Pose Estimation case definition</h3>
+                <p>
+                  One synchronized stereo video pair, around 10 to 15 seconds long, where one endoscope remains stationary while the other moves. Ground-truth relative poses are estimated using ArUco-assisted reconstruction and are provided for all frames.
+                </p>
+              </article>
+              <article>
+                <h3>Deformable NVS case definition</h3>
+                <p>
+                  One stereo clip from Endoscope 2, together with the relative pose of Endoscope 1, while neither camera moves and the anatomical scene deforms. The held-out view is used to evaluate novel-view rendering quality.
+                </p>
+              </article>
+            </div>
+
+          </article>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="footer__inner">
+        </div>
+      </footer>
+    </div>
+
+    <script src="assets/site.js"></script>
+  </body>
+</html>

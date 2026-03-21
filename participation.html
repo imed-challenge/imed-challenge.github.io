@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Participation - iMED Challenge 2026</title>
+    <meta name="description" content="Participation guide for the iMED Challenge 2026.">
+    <link rel="stylesheet" href="assets/site.css">
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="masthead">
+        <div class="masthead__inner">
+          <nav class="site-nav" aria-label="Primary">
+            <a class="site-nav__brand" href="./index.html">iMED Challenge 2026</a>
+            <button class="site-nav__toggle" type="button" data-nav-toggle aria-label="Toggle navigation">Menu</button>
+            <ul class="site-nav__links" data-nav-links>
+              <li><a href="./index.html">Overview</a></li>
+              <li><a href="./data.html">Data</a></li>
+              <li><a href="./evaluation.html">Evaluation &amp; Prizes</a></li>
+              <li><a class="is-current" href="./participation.html">Participation</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <main class="page-wrap">
+        <aside class="sidebar">
+          <div class="sidebar__sticky">
+            <section class="profile-card">
+              <div class="profile-card__avatar">
+                <img src="images/download.png" alt="iMED Challenge logo">
+              </div>
+              <h2 class="profile-card__title">Participation</h2>
+              <p class="profile-card__subtitle">Registration and submissions</p>
+              <a class="profile-card__button" href="mailto:sierra.bonilla.21@ucl.ac.uk">Contact Organizers</a>
+              <ul class="profile-card__meta">
+                <li><span class="profile-card__dot"></span><span><strong>Registration</strong><br><a href="#" onclick="return false;" aria-disabled="true">Synapse</a></span></li>
+              </ul>
+            </section>
+          </div>
+        </aside>
+
+        <section class="content">
+          <article class="content-card">
+            <div class="eyebrow">How To Participate</div>
+            <h1>Registration, deadlines, and submission flow</h1>
+            <p class="kicker">
+              This page collects the practical information participants need most: where to register, what to submit, and the main dates for the challenge workflow.
+            </p>
+
+            <h2>Getting Started</h2>
+            <p>
+              Visit our <a href="https://www.synapse.org/" target="_blank" rel="noopener noreferrer">Synapse registration page</a> to sign up for the challenge and receive submission updates.
+            </p>
+
+            <div class="callout">
+              <strong>Synapse registration link.</strong>
+              Current placeholder URL:
+              <a href="https://www.synapse.org/" target="_blank" rel="noopener noreferrer">https://www.synapse.org/</a>
+              <br>
+              Replace this with the final challenge-specific Synapse page once it is available.
+            </div>
+
+            <h2>Expected submission format</h2>
+            <div class="panel-grid">
+              <article>
+                <h3>Task 1: Pose Estimation</h3>
+                <p>
+                  Submit a Docker image implementing a <code>get_pose()</code> interface compatible with the official evaluation pipeline.
+                </p>
+              </article>
+              <article>
+                <h3>Task 2: Deformable NVS</h3>
+                <p>
+                  Submit a Docker image implementing a <code>new_view()</code> interface compatible with the official rendering and evaluation pipeline.
+                </p>
+              </article>
+            </div>
+
+            <h2>Participant timeline</h2>
+            <ol class="timeline">
+              <li><strong>April 15, 2026</strong> Registration opens and challenge materials become available.</li>
+              <li><strong>xx xx, 2026</strong> Technical compatibility testing opens for Docker submissions.</li>
+              <li><strong>xx xx, 2026</strong> Public validation submissions open for qualitative and quantitative reporting on public sequences.</li>
+              <li><strong>xx xx, 2026</strong> Final Docker submission deadline.</li>
+              <li><strong>xx xx, 2026</strong> Method report deadline.</li>
+              <li><strong>xx xx, 2026</strong> Final hidden-test results communicated to participants.</li>
+            </ol>
+
+            <h2>Checklist before submission</h2>
+            <div class="faq-list">
+              <div class="faq-item">
+                <h3>1. Register your team</h3>
+                <p>Create a team entry on the official challenge platform once it is live and make sure your contact email is correct.</p>
+              </div>
+              <div class="faq-item">
+                <h3>2. Validate your Docker image</h3>
+                <p>Test your container with the official loader and evaluation scripts on public data before submitting to the hidden test phase.</p>
+              </div>
+              <div class="faq-item">
+                <h3>3. Document external data use</h3>
+                <p>List all external datasets, pretrained checkpoints, and additional supervision sources in the method report.</p>
+              </div>
+              <div class="faq-item">
+                <h3>4. Submit your structured report</h3>
+                <p>Submit a structured method report that clearly describes the proposed approach, training and inference pipeline, external datasets or pretrained models used, and the names of the team contributors to be listed in the official challenge publication.</p>
+              </div>
+            </div>
+
+            <h2>FAQ</h2>
+            <div class="faq-list">
+              <div class="faq-item">
+                <h3>Can we use external public datasets?</h3>
+                <p>Yes. The current policy allows publicly available datasets and pretrained networks, provided they are clearly documented and legally accessible.</p>
+              </div>
+              <div class="faq-item">
+                <h3>Can we use private hospital data?</h3>
+                <p>No. Private clinical data and non-public institutional datasets are not permitted.</p>
+              </div>
+              <div class="faq-item">
+                <h3>Will there be a public validation phase?</h3>
+                <p>Yes. A public validation phase will provide official scripts, baseline code, and intermediate submissions before final hidden testing.</p>
+              </div>
+              <div class="faq-item">
+                <h3>Will code need to be open-sourced?</h3>
+                <p>Open-sourcing is encouraged but not required. Teams must submit executable Docker containers to the organizers.</p>
+              </div>
+            </div>
+
+            <h2>Contact</h2>
+            <p>
+              For questions about registration, submissions, or participation, contact
+              <a href="mailto:sierra.bonilla.21@ucl.ac.uk">Sierra Bonilla</a>.
+              Additional official support channels will be listed here once available.
+            </p>
+          </article>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="footer__inner">
+          Participation guidance and registration updates will be published on this page.
+        </div>
+      </footer>
+    </div>
+
+    <script src="assets/site.js"></script>
+  </body>
+</html>
