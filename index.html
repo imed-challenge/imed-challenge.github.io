@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iMED Challenge 2026</title>
-    <meta name="description" content="iMED Challenge 2026 at EndoVis / MICCAI: pose estimation and deformable novel view synthesis for surgical vision.">
+    <meta name="description" content="iMED Challenge 2026 at EndoVis / MICCAI: the first benchmark for surgical 3D perception using synchronized multi-endoscope data.">
     <link rel="stylesheet" href="assets/site.css">
   </head>
   <body>
@@ -36,7 +36,7 @@
               <a class="profile-card__button" href="./participation.html">How To Participate</a>
               <ul class="profile-card__meta">
                 <li><span class="profile-card__dot"></span><span><strong>Primary contact</strong><br>Sierra Bonilla<br><a href="mailto:sierra.bonilla.21@ucl.ac.uk">sierra.bonilla.21@ucl.ac.uk</a></span></li>
-                <li><span class="profile-card__dot"></span><span><strong>Scope</strong><br>Pose estimation and deformable novel view synthesis for surgical endoscopy</span></li>
+                <li><span class="profile-card__dot"></span><span><strong>Scope</strong><br>Surgical 3D perception with pose estimation and deformable novel view synthesis</span></li>
                 <li><span class="profile-card__dot"></span><span><strong>Platform</strong><br><a href="https://www.synapse.org/Synapse:syn74277461/wiki/639538" target="_blank" rel="noopener noreferrer">Synapse</a></span></li>
               </ul>
             </section>
@@ -48,12 +48,12 @@
             <div class="conference-logo">
               <img src="images/miccai2026-logo.png" alt="Official MICCAI 2026 logo">
             </div>
-            <h1 class="hero-title">Multi-Endoscope Dataset Novel View Synthesis Challenge</h1>
+            <h1 class="hero-title">iMED Challenge 2026</h1>
             <div class="hero">
               <div class="hero__copy">
-                <div class="eyebrow">EndoVis 2026 Challenge Track</div>
+                <div class="eyebrow">Multi-Endoscope Dataset for Surgical 3D Perception</div>
                 <p class="lead">
-                  The iMED Challenge benchmarks two core problems in surgical vision: relative pose estimation between synchronized endoscopes and deformable novel view synthesis under realistic tissue motion, tool interaction, and constrained viewpoints.
+                  The iMED Challenge is the first benchmark for 3D surgical scene understanding using synchronized multi-endoscope data, with official tasks in pose estimation and deformable novel view synthesis for robot-assisted minimally invasive surgery.
                 </p>
                 <div class="hero__actions">
                   <a class="button" href="./participation.html">Read Participation Guide</a>
@@ -67,17 +67,17 @@
 
             <h2 id="description">Description</h2>
             <p>
-              Vision-based 3D reconstruction is a foundational capability for surgical guidance, scene understanding, and future autonomy in minimally invasive procedures. The iMED Challenge focuses on this problem under the difficult conditions that matter most in practice: deforming anatomy, specular surfaces, limited viewpoints, and tool-tissue interaction. The challenge is built on synchronized dual-endoscope data and is intended to evaluate how well methods generalize to unseen anatomical scenes instead of merely interpolating within an easy capture setup.
+              Vision-based 3D reconstruction is critical for real-time guidance systems, autonomous camera control, and digital twins in robot-assisted minimally invasive surgery. Surgical environments remain especially challenging because of constrained viewpoints through narrow trocar ports, tissue deformation from respiratory motion and tool interactions, non-Lambertian surfaces with strong specularities, and transient phenomena such as smoke and bleeding.
             </p>
 
             <h2 id="objective">Objective</h2>
             <p>
-              Advance robust 3D surgical vision by benchmarking methods for accurate relative camera pose estimation and deformable novel view synthesis in endoscopic scenes.
+              Benchmark robust surgical 3D perception using synchronized multi-endoscope data in deformable, clinically realistic scenes.
             </p>
 
             <h2 id="motivation">Motivation</h2>
             <p>
-              Traditional Structure-from-Motion pipelines struggle in surgical videos because tissue deforms, anatomical regions may be weakly textured, and specular highlights violate photometric assumptions. Data-driven approaches also remain difficult to train reliably because public datasets are limited and surgical imagery differs substantially from natural-image pretraining corpora. iMED is designed to provide a cleaner benchmark for these hard but clinically meaningful settings.
+              Existing surgical vision datasets capture scenes from a single endoscope along a single trajectory, making it difficult to distinguish true geometric reconstruction from photometric interpolation along a narrow forward-facing path. The iMED Challenge addresses this limitation by evaluating methods on synchronized multi-endoscope data with held-out viewpoints and cross-trajectory validation.
             </p>
 
             <h2 id="tasks">Tasks</h2>
@@ -85,47 +85,35 @@
               <article>
                 <div class="task-header">
                   <h3>Task 1: iMED PE</h3>
-                  <span class="chip">Primary ranking: ATE</span>
+                  <span class="chip">Metric: ATE</span>
                 </div>
                 <p>
-                  Estimate the relative pose between two endoscopes in moving-camera surgical sequences. Methods must remain stable under tissue deformation, reflections, limited texture, and constrained views.
+                  Estimate accurate per-frame relative camera poses between two endoscopes in deformable surgical environments.
                 </p>
                 <div class="chip-row">
-                  <span class="chip chip--muted">78 train</span>
-                  <span class="chip chip--muted">21 val</span>
-                  <span class="chip chip--muted">6 hidden test</span>
+                  <span class="chip chip--muted">69 train</span>
+                  <span class="chip chip--muted">21 test</span>
                 </div>
               </article>
               <article>
                 <div class="task-header">
                   <h3>Task 2: iMED NVS</h3>
-                  <span class="chip">Primary ranking: PSNR</span>
+                  <span class="chip">Metrics: PSNR, SSIM</span>
                 </div>
                 <p>
-                  Synthesize novel views in deforming surgical scenes using a train-on-one-endoscope, test-on-another setup. The benchmark is meant to reward actual geometric and temporal understanding rather than simple view interpolation.
+                  Synthesize novel views of deformable surgical scenes from a held-out endoscope viewpoint using a train-on-one-endoscope, test-on-another protocol.
                 </p>
                 <div class="chip-row">
-                  <span class="chip chip--muted">84 train</span>
-                  <span class="chip chip--muted">23 val</span>
-                  <span class="chip chip--muted">6 hidden test</span>
+                  <span class="chip chip--muted">20 sequences</span>
                 </div>
               </article>
             </div>
 
-            <h2 id="news">News</h2>
+            <h2 id="news">Key Dates</h2>
             <ul>
-              <li><strong>April 15, 2026</strong> Proposal-target date for participant registration opening and public release of challenge materials.</li>
+              <li><strong>April 15, 2026</strong> Registration opens and the dataset is released on Synapse.</li>
+              <li><strong>October 2026 (TBA)</strong> Challenge Day at MICCAI 2026 / EndoVis.</li>
             </ul>
-
-            <h2 id="timeline">Timeline</h2>
-            <ol class="timeline">
-              <li><strong>April 15, 2026</strong> Registration opens, challenge website launch, dataset release, and evaluation tooling release.</li>
-              <li><strong>xx xx, 2026</strong> Optional Docker compatibility testing opens; public validation submissions begin.</li>
-              <li><strong>xx xx, 2026</strong> Final Docker submission deadline.</li>
-              <li><strong>xx xx, 2026</strong> Structured method report deadline.</li>
-              <li><strong>xx xx, 2026</strong> Final evaluation results shared with participants.</li>
-              <li><strong>xx xx, 2026</strong> EndoVis / MICCAI challenge day, with exact date still to be announced.</li>
-            </ol>
 
             <h2 id="organizers">Organizers</h2>
             <div class="table-wrap">

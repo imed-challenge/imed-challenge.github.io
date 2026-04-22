@@ -62,32 +62,29 @@
               <a href="https://www.ucl.ac.uk/library/open-science-research-support/research-data-management/ucl-research-data-repository" target="_blank" rel="noopener noreferrer">UCL Research Data Repository</a>.
             </p>
 
-            <h2>Task-specific splits</h2>
+            <h2>Task-specific subsets</h2>
             <div class="table-wrap">
               <table>
                 <thead>
                   <tr>
                     <th>Task</th>
-                    <th>Train</th>
-                    <th>Validation</th>
-                    <th>Hidden Test</th>
+                    <th>Cases</th>
+                    <th>Reference data / protocol</th>
                     <th>Main purpose</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td>iMED PE</td>
-                    <td>78 cases</td>
-                    <td>21 cases</td>
-                    <td>6 cases</td>
+                    <td>69 train / 21 test</td>
+                    <td>ArUco marker-based reference poses with markers inpainted in the released frames</td>
                     <td>Relative pose estimation under moving-camera, deformable scenes</td>
                   </tr>
                   <tr>
                     <td>iMED NVS</td>
-                    <td>84 cases</td>
-                    <td>23 cases</td>
-                    <td>6 cases</td>
-                    <td>Novel view synthesis with static cameras and moving anatomy</td>
+                    <td>20 sequences</td>
+                    <td>Train on Endoscope 2 stereo video (~200 frames); test on held-out Endoscope 1 views (~200 frames)</td>
+                    <td>Deformable novel view synthesis from a held-out endoscope viewpoint</td>
                   </tr>
                 </tbody>
               </table>
@@ -98,13 +95,13 @@
               <article>
                 <h3>Pose Estimation case definition</h3>
                 <p>
-                  One synchronized stereo video pair, around 10 to 15 seconds long, where one endoscope remains stationary while the other moves. Ground-truth relative poses are estimated using ArUco-assisted reconstruction and are provided for all frames.
+                  Estimate accurate per-frame relative camera poses between two endoscopes in deformable surgical environments. Reference trajectories are derived from an ArUco marker-based pipeline, with markers removed from the released frames.
                 </p>
               </article>
               <article>
                 <h3>Deformable NVS case definition</h3>
                 <p>
-                  One stereo clip from Endoscope 2, together with the relative pose of Endoscope 1, while neither camera moves and the anatomical scene deforms. The held-out view is used to evaluate novel-view rendering quality.
+                  Train on Endoscope 2 stereo video (approximately 200 frames) and synthesize held-out Endoscope 1 views (approximately 200 frames). This train-on-one-endoscope, test-on-another protocol evaluates geometric understanding rather than simple photometric interpolation.
                 </p>
               </article>
             </div>

@@ -48,46 +48,46 @@
             <div class="eyebrow">Assessment Methods</div>
             <h1>Evaluation focused on generalization, not leaderboard gaming</h1>
             <p class="kicker">
-              The iMED Challenge uses conventional but clinically meaningful metrics: geometric accuracy for pose estimation and photometric fidelity for deformable novel view synthesis, all computed on hidden test scenes.
+              The iMED Challenge evaluates held-out surgical scenes using task-specific metrics aligned with the official Synapse task definitions: geometric accuracy for iMED PE and photometric fidelity for iMED NVS.
             </p>
 
-            <h2>Primary ranking metrics</h2>
+            <h2>Evaluation metrics</h2>
             <div class="metric-grid">
               <article class="metric-card">
                 <h3>iMED PE</h3>
-                <p><strong>Primary ranking metric:</strong> Absolute Trajectory Error (ATE)</p>
-                <p><strong>Also reported:</strong> relative rotational error (ROT), registered tracking fraction (RTF), runtime transparency</p>
+                <p><strong>Primary metric:</strong> Absolute Trajectory Error (ATE) after scale alignment to the metric trajectory</p>
+                <p><strong>Also reported:</strong> % Successfully Registered Frames, Runtime</p>
               </article>
               <article class="metric-card">
                 <h3>iMED NVS</h3>
-                <p><strong>Primary ranking metric:</strong> PSNR</p>
-                <p><strong>Also reported:</strong> SSIM, training FPS, rendering FPS</p>
+                <p><strong>Primary metrics:</strong> PSNR, SSIM</p>
+                <p><strong>Also reported:</strong> Training FPS, Rendering FPS</p>
               </article>
             </div>
 
-            <h2>Ranking procedure</h2>
+            <h2>Metric summary</h2>
             <div class="table-wrap">
               <table>
                 <thead>
                   <tr>
                     <th>Task</th>
                     <th>Per-sequence computation</th>
-                    <th>Aggregate rank</th>
-                    <th>Fallback for missing outputs</th>
+                    <th>Aggregate summary</th>
+                    <th>Missing outputs</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td>iMED PE</td>
-                    <td>ATE, ROT, and valid-frame fraction computed sequence-by-sequence</td>
-                    <td>Mean ATE over all hidden test sequences</td>
-                    <td>Missing outputs count as failure cases with capped error and zero tracking fraction</td>
+                    <td>ATE after scale alignment to the metric trajectory; successful registration percentage and runtime are also reported</td>
+                    <td>Mean ATE over all test sequences</td>
+                    <td>Missing outputs count as failure cases with zero successful registrations</td>
                   </tr>
                   <tr>
                     <td>iMED NVS</td>
-                    <td>PSNR and SSIM computed per frame, then averaged per sequence</td>
-                    <td>Mean PSNR over all hidden test sequences</td>
-                    <td>Missing outputs contribute zero-quality frames in the aggregate</td>
+                    <td>PSNR and SSIM computed on held-out Endoscope 1 views; training FPS and rendering FPS are also reported</td>
+                    <td>Mean PSNR and mean SSIM over all test sequences</td>
+                    <td>Missing outputs contribute zero-quality frames in the summary</td>
                   </tr>
                 </tbody>
               </table>
@@ -105,11 +105,11 @@
               </div>
             </div>
 
-            <h2>Validation and hidden test philosophy</h2>
+            <h2>Validation and test philosophy</h2>
             <ul>
               <li>Participants are expected to self-evaluate on public development data using official scripts.</li>
               <li>Intermediate validation submissions are planned before the final test phase.</li>
-              <li>Final rankings are computed only on hidden test scenes that remain unseen to participants.</li>
+              <li>Final rankings are computed only on the official test scenes.</li>
             </ul>
 
             <h2>Prizes and awards</h2>
