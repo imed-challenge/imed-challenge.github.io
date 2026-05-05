@@ -17,7 +17,7 @@
             <ul class="site-nav__links" data-nav-links>
               <li><a href="./index.html">Overview</a></li>
               <li><a href="./data.html">Data</a></li>
-              <li><a href="./evaluation.html">Evaluation &amp; Prizes</a></li>
+              <li><a href="./evaluation.html">Evaluation</a></li>
               <li><a class="is-current" href="./participation.html">Participation</a></li>
             </ul>
           </nav>
@@ -29,7 +29,7 @@
           <div class="sidebar__sticky">
             <section class="profile-card">
               <div class="profile-card__avatar">
-                <img src="images/download.png" alt="iMED Challenge logo">
+                <img src="images/miccai2026-mobile-logo-france.png" alt="MICCAI 2026 France logo">
               </div>
               <h2 class="profile-card__title">Participation</h2>
               <p class="profile-card__subtitle">Registration and submissions</p>
@@ -43,16 +43,21 @@
 
         <section class="content">
           <article class="content-card">
-            <div class="eyebrow">How To Participate</div>
-            <h1>Registration, deadlines, and submission flow</h1>
+            <!-- <div class="eyebrow">How To Participate</div> -->
+            <h1>Participation</h1>
             <p class="kicker">
               This page collects the practical information participants need most: where to register, what to submit, and the main dates for the challenge workflow.
             </p>
 
-            <h2>Getting Started</h2>
-            <p>
-              Visit our <a href="https://www.synapse.org/Synapse:syn74277461/wiki/639538" target="_blank" rel="noopener noreferrer">Synapse registration page</a> to sign up for the challenge and receive submission updates.
-            </p>
+            <h2>How to Participate</h2>
+            <ol>
+              <li>Register on the <a href="https://www.synapse.org/Synapse:syn74277461/wiki/639538" target="_blank" rel="noopener noreferrer">Synapse challenge page</a> and accept the <a href="https://www.dropbox.com/scl/fi/5dm24ohyv65gi9d4d9dv0/EndoVis_Rules.pdf?rlkey=0rzddq688zc65fkhe5tcdtwlj&e=1&dl=0" target="_blank" rel="noopener noreferrer">Data Usage Agreement (EndoVis rules)</a>; every person on the team should sign.</li>
+              <li>Download the filtered iMED dataset associated with your task and familiarize yourself with the data format and baseline implementations (links on the Getting Started page).</li>
+              <li>Develop your method. You may use publicly available external data for pretraining or co-training, but private/non-public clinical data is not permitted.</li>
+              <li>Validate by submitting to the public validation leaderboard (opens May 30).</li>
+              <li>Submit your Docker container by the deadline. Task 1 containers must implement <code>get_pose()</code>; Task 2 containers must implement <code>new_view()</code>.</li>
+              <li>Submit a structured methods report by <strong>September 1</strong>.</li>
+            </ol>
 
             <div class="callout">
               <strong>Synapse registration link.</strong>
@@ -62,45 +67,55 @@
               Use this page for registration and challenge updates.
             </div>
 
-            <h2>Expected submission format</h2>
-            <div class="panel-grid">
-              <article>
-                <h3>Task 1: Pose Estimation</h3>
-                <p>
-                  Submit a Docker image implementing a <code>get_pose()</code> interface compatible with the official evaluation pipeline.
-                </p>
-              </article>
-              <article>
-                <h3>Task 2: Deformable NVS</h3>
-                <p>
-                  Submit a Docker image implementing a <code>new_view()</code> interface compatible with the official rendering and evaluation pipeline.
-                </p>
-              </article>
-            </div>
+            <h2>Downloading the data</h2>
+            <p>
+              You can download the data manually under the Files tab on Synapse. Alternatively, you can download programmatically:
+            </p>
+            <pre><code>import synapseutils
+import synapseclient
+email = "user@email.edu"  # Your email address in the Synapse account
+authToken = "123456789"   # add your authentication
+local_folder = "./sample_data"  # Your local folder for the downloaded data
+syn = synapseclient.Synapse()
+syn.login(authToken=authToken)
+files = synapseutils.syncFromSynapse(syn, 'syn74277461', path=local_folder)</code></pre>
+
+            <h2>Signed rules requirement</h2>
+            <p>
+              After registering on Synapse, each participant must email one signed copy of the EndoVis rules form (one signed form per person) to the primary organizer, Sierra Bonilla, at <a href="mailto:sierra.bonilla.21@ucl.ac.uk">sierra.bonilla.21@ucl.ac.uk</a>. Download the form here:
+              <a href="https://www.dropbox.com/scl/fi/5dm24ohyv65gi9d4d9dv0/EndoVis_Rules.pdf?rlkey=0rzddq688zc65fkhe5tcdtwlj&e=1&dl=0" target="_blank" rel="noopener noreferrer">EndoVis Rules PDF</a>.
+            </p>
 
             <h2>Participant timeline</h2>
             <ol class="timeline">
               <li><strong>April 15, 2026</strong> Registration opens and the dataset is released on Synapse.</li>
-              <li><strong>October 2026 (TBA)</strong> Challenge Day at MICCAI 2026 / EndoVis.</li>
+              <li><strong>May 10, 2026</strong> Docker Containers for subtasks will be released on Synapse.</li>
+              <li><strong>May 30, 2026</strong> Public validation leaderboard opens.</li>
+              <li><strong>September 1, 2026</strong> Structured methods report due.</li>
+              <li><strong>September 2026 (TBA)</strong> Challenge Day at MICCAI 2026 / EndoVis.</li>
             </ol>
 
             <h2>Checklist before submission</h2>
             <div class="faq-list">
               <div class="faq-item">
                 <h3>1. Register your team</h3>
-                <p>Create a team entry on the official challenge platform once it is live and make sure your contact email is correct.</p>
+                <p>Create a team entry on Synapse, accept the Data Usage Agreement, and make sure your contact email is correct.</p>
               </div>
               <div class="faq-item">
                 <h3>2. Validate your Docker image</h3>
-                <p>Test your container with the official loader and evaluation scripts on public data before the final evaluation phase.</p>
+                <p>Test your container with the official loader and submit to the public validation leaderboard once it opens.</p>
               </div>
               <div class="faq-item">
                 <h3>3. Document external data use</h3>
                 <p>List all external datasets, pretrained checkpoints, and additional supervision sources in the method report.</p>
               </div>
               <div class="faq-item">
-                <h3>4. Submit your structured report</h3>
-                <p>Submit a structured method report that clearly describes the proposed approach, training and inference pipeline, external datasets or pretrained models used, and the names of the team contributors to be listed in the official challenge publication.</p>
+                <h3>4. Email your signed rules form</h3>
+                <p>Each participant must email one signed copy of the EndoVis rules form to the primary organizer, Sierra Bonilla, at <a href="mailto:sierra.bonilla.21@ucl.ac.uk">sierra.bonilla.21@ucl.ac.uk</a>.</p>
+              </div>
+              <div class="faq-item">
+                <h3>5. Submit your structured report</h3>
+                <p>Submit a structured method report by September 1 with your approach, training/inference pipeline, and any external data or pretrained models used.</p>
               </div>
             </div>
 
