@@ -315,9 +315,8 @@ code {
 }
 
 .conference-logo {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: flex;
+  width: 100%;
   margin: 0 0 1.4rem;
   padding: 1rem 1.25rem;
   border: 1px solid var(--border);
@@ -326,7 +325,8 @@ code {
 }
 
 .conference-logo img {
-  width: min(100%, 320px);
+  width: 100%;
+  max-width: none;
   height: auto;
 }
 
@@ -351,10 +351,12 @@ code {
 
 .hero {
   display: block;
+  width: 100%;
   margin-bottom: 1.2rem;
 }
 
 .hero__copy {
+  width: 100%;
   min-width: 0;
 }
 
