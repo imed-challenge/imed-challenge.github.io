@@ -344,6 +344,23 @@ code {
   border-radius: 16px;
 }
 
+.gif-row {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 2%;
+  margin: 1.35rem 0 1.6rem;
+}
+
+.gif-row img {
+  flex: 0 0 32%;
+  width: 32%;
+  max-width: 32%;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #0e1726;
+}
+
 .hero-title {
   margin: 0 0 1.2rem;
   max-width: none;
@@ -737,6 +754,17 @@ tr:last-child td {
   .split-grid,
   .sponsor-grid {
     grid-template-columns: 1fr;
+  }
+
+  .gif-row {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .gif-row img {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 100%;
   }
 }
 
