@@ -397,6 +397,33 @@ code {
   margin-top: 1.2rem;
 }
 
+/* Shows bottom 92.5% of the overview image (top 7.5% cropped), no empty layout gap */
+.overview-figure {
+  position: relative;
+  width: 70%;
+  max-width: 70%;
+  margin: 1.5rem auto 2rem;
+  overflow: hidden;
+  aspect-ratio: 2088 / calc(2142 * 0.925);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.overview-figure img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  transform: translateY(-7.5%);
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  margin: 0;
+  display: block;
+}
+
 .button {
   display: inline-flex;
   align-items: center;
