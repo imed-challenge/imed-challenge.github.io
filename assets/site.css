@@ -712,8 +712,13 @@ tr:last-child td {
 .sponsor-card img {
   width: 100%;
   max-width: 420px;
-  height: auto;
+  height: 150px;
   object-fit: contain;
+}
+
+.sponsor-card--nvidia img {
+  height: 120px;
+  object-fit: cover;
 }
 
 .tagline-list {
